@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MyContext from '../common/MyContext';
-import { Button, Container, Grid, Typography } from '@mui/material';
+import { Button, Container, Grid, Tabs, Typography } from '@mui/material';
 import UncontrolledComp from '../common/UncontrolledComp';
 import HomeContent from '../common/HomeContent';
 import WithLoading from '../hoc/WithLoading.';
@@ -13,6 +13,9 @@ import CounterSagas from '../common/CounterSagas';
 import useWindowSize from '../custom_hooks/useWindowSize';
 import TypeCheckComp from '../common/TypeCheckComp';
 import ToDoApp from '../common/ToDoApp';
+import TabsComp from '../components/tabsView/TabsComp';
+import UserForm from '../components/form/UserForm';
+import UserList from '../components/form/UserList';
 
 const apiUrl = 'https://jsonplaceholder.typicode.com/posts?limit=20';
 
@@ -51,6 +54,11 @@ const Home = () => {
     const [data, setData] = useState([]);
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [userList, setUserList] = useState<any[]>([]);
+
+    const updateUserList = (userInfo: any) => {
+        setUserList([...userList, userInfo]);
+    }
 
     const NewHomeContent = WithLoading(ListHomeData);
 
@@ -133,7 +141,14 @@ const Home = () => {
             {/* Typescript test comp */}
             {/* <TypeCheckComp user={superUser} changeAppConfig={changeAppConfig} /> */}
 
-            <ToDoApp />
+            {/* ToDo App */}
+            {/* <ToDoApp /> */}
+
+            {/* Incomplete */}
+            {/* <TabsComp /> */}
+
+            <UserForm updateUserList={updateUserList} />
+            <UserList userList={userList} />
 
         </Container>
 

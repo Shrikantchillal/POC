@@ -10,10 +10,14 @@
         ],
         "strict": true,
         "sourceMap": true,
-        "target": "ES2022"
+        "target": "ESNext",
+        "types": [
+            "jest",
+            "@testing-library/jest-dom"
+        ],
     },
     "include": [
-        "./src/**/*"
+        "src"
     ],
     "exclude": [
         "node_modules",

@@ -8,6 +8,7 @@ import { applyMiddleware, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import reducer from './src/reducer/reducer';
 import { rootSagas } from './src/sagas/rootSagas';
+import './basscss.css';
 
 const sagaMiddleware = createSagaMiddleware();
 
